@@ -36,6 +36,8 @@
       <module>seata-order-service2001</module>
       <module>seata-storage-service2002</module>
       <module>seata-account-service2003</module>
+      <module>cloudalibaba-dubbo-provider9005</module>
+      <module>cloudalibaba-dubbo-order85</module>
   </modules>
   <packaging>pom</packaging>
 

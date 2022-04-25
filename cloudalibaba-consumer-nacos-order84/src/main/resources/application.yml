@@ -29,3 +29,10 @@ management:
 feign:
   sentinel:
     enabled: true
+  # 配置 GZIP 来压缩数据
+#  compression:
+#    request:
+#      enabled: true
+logging:
+  level:
+    com.scut.springcloud.service: debug
