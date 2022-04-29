@@ -24,7 +24,7 @@ public class CircleBreakerController {
 
     @RequestMapping("/consumer/fallback/{id}")
     //@SentinelResource(value = "fallback",fallback = "handlerFallback") //fallback负责业务异常
-    //@SentinelResource(value = "fallback",blockHandler = "blockHandler") //blockHandler负责在sentinel里面配置的降级限流
+    //@SentinelResource(value = "fallback",blockHandler = "blockHandler") //blockHandler负责在sentinel里面配置的降级限流  exceptionsToIgnore:忽略此异常
     @SentinelResource(value = "fallback",fallback = "handlerFallback",blockHandler = "blockHandler", exceptionsToIgnore = {IllegalArgumentException.class})
     public CommonResult<Payment> fallback(@PathVariable Long id) {
         CommonResult<Payment> result = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/"+id,CommonResult.class,id);
@@ -51,10 +51,10 @@ public class CircleBreakerController {
     private PaymentService paymentService;
 
     @GetMapping(value = "/consumer/openfeign/{id}")
+    @SentinelResource(value = "fallback_feign",fallback = "handlerFallback",blockHandler = "blockHandler")
     public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id)
     {
-        if(id == 4)
-        {
+        if(id == 4) {
             throw new RuntimeException("没有该id");
         }
         return paymentService.paymentSQL(id);

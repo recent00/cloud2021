@@ -12,7 +12,7 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:8080 #配置Sentinel dashboard地址
-        port: 8719
+        port: 8719    #指定应用于Sentinel控制台交互的端口，应用本地会起一个该端口占用的HttpServer
       datasource:
         ds1:
           nacos:
@@ -22,6 +22,7 @@ spring:
             data-type: json
             rule-type: flow
 
+#暴露actuator端点
 management:
   endpoints:
     web:

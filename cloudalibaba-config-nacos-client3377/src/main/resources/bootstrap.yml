@@ -12,8 +12,13 @@ spring:
       config:
         server-addr: localhost:8848 #Nacos作为配置中心地址
         file-extension: yaml #指定yaml格式的配置
-        group: DEV_GROUP
-        namespace: 6e3d2bcf-6752-492c-96ba-8b70493de70e
+        ext-config:     # 支持一个应用多个 DataId 的配置
+          - data-id: extconfig.yaml
+            group: EXT_GROUP
+            refresh: true
+        shared-dataids: common.yaml,share.yaml  #不同工程的通用配置 支持共享的 DataId
+#        group: DEV_GROUP
+#        namespace: 6e3d2bcf-6752-492c-96ba-8b70493de70e
 
 
 # ${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}

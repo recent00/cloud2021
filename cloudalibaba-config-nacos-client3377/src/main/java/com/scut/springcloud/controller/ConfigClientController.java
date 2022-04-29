@@ -11,8 +11,16 @@ public class ConfigClientController {
     @Value("${config.info}")
     private String configInfo;
 
+    @Value("${share.info}")
+    private String shareInfo;
+
     @GetMapping("/config/info")
     public String getConfigInfo() {
         return configInfo;
+    }
+
+    @GetMapping("/share/info")
+    public String getShareInfo() {
+        return shareInfo;
     }
 }
