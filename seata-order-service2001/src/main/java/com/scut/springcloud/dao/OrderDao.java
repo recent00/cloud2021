@@ -12,7 +12,7 @@ public interface OrderDao {
     void create(Order order);
 
     /**
-     * 修改订单金额
+     * 修改订单状态
      */
     void update(@Param("userId") Long userId, @Param("status") Integer status);
 

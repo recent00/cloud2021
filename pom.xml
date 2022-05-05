@@ -38,6 +38,7 @@
       <module>seata-account-service2003</module>
       <module>cloudalibaba-dubbo-provider9005</module>
       <module>cloudalibaba-dubbo-order85</module>
+      <module>cloudalibaba-gateway-gatway9528</module>
   </modules>
   <packaging>pom</packaging>
 

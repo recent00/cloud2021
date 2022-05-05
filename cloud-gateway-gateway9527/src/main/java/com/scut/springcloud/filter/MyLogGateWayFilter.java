@@ -12,6 +12,8 @@ import java.util.Date;
 
 @Component
 public class MyLogGateWayFilter implements GlobalFilter, Ordered {
+
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         System.out.println("time:"+new Date()+"\t 执行了自定义的全局过滤器: "+"MyLogGateWayFilter"+"hello");
